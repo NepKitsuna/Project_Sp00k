@@ -1,81 +1,98 @@
-[gd_scene load_steps=10 format=3 uid="uid://l20yrk3bihxr"]
+[gd_scene load_steps=8 format=3 uid="uid://l20yrk3bihxr"]
 
-[ext_resource type="Texture2D" uid="uid://dq5flk4xprnpv" path="res://Art/corner.png" id="1_kxqam"]
 [ext_resource type="Texture2D" uid="uid://bf7o3ibklqdlv" path="res://Art/Play.png" id="2_4gjge"]
 [ext_resource type="Script" path="res://Screens/MenuButtonScript.gd" id="2_an5u7"]
 [ext_resource type="Texture2D" uid="uid://dkkwb8cnk7lei" path="res://Art/options.png" id="3_c0vnk"]
 [ext_resource type="Texture2D" uid="uid://dy3mmvh8jnls2" path="res://Art/credits.png" id="4_pabpg"]
 [ext_resource type="Texture2D" uid="uid://3amommjtuh45" path="res://Art/exit.png" id="5_wvyaa"]
 [ext_resource type="Texture2D" uid="uid://c6gd4oa7p7km6" path="res://Art/Top Title.png" id="6_6fxio"]
-[ext_resource type="Texture2D" uid="uid://bx854khaafsi" path="res://Art/SCP Logo.png" id="7_lsiqg"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pn3i4"]
 
-[node name="Outside_container" type="MarginContainer"]
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -5.0
-offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 alignment = 2
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
-layout_mode = 2
-texture = ExtResource("1_kxqam")
-
-[node name="MenuButtons" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="MenuButtons" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 alignment = 2
 script = ExtResource("2_an5u7")
 
-[node name="Play" type="TextureButton" parent="HBoxContainer/VBoxContainer/MenuButtons"]
+[node name="Play" type="TextureButton" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/MenuButtons"]
 layout_mode = 2
 texture_normal = ExtResource("2_4gjge")
 texture_pressed = SubResource("CompressedTexture2D_pn3i4")
-stretch_mode = 0
 
-[node name="Options" type="TextureButton" parent="HBoxContainer/VBoxContainer/MenuButtons"]
+[node name="Options" type="TextureButton" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/MenuButtons"]
 layout_mode = 2
 texture_normal = ExtResource("3_c0vnk")
 texture_pressed = SubResource("CompressedTexture2D_pn3i4")
-stretch_mode = 0
 
-[node name="Credits" type="TextureButton" parent="HBoxContainer/VBoxContainer/MenuButtons"]
+[node name="Credits" type="TextureButton" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/MenuButtons"]
 layout_mode = 2
 texture_normal = ExtResource("4_pabpg")
 texture_pressed = SubResource("CompressedTexture2D_pn3i4")
-stretch_mode = 0
 
-[node name="Quit" type="TextureButton" parent="HBoxContainer/VBoxContainer/MenuButtons"]
+[node name="Quit" type="TextureButton" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/MenuButtons"]
 layout_mode = 2
 texture_normal = ExtResource("5_wvyaa")
 texture_pressed = SubResource("CompressedTexture2D_pn3i4")
-stretch_mode = 0
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Play"
+
+[node name="Button2" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Options"
+
+[node name="Button3" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Credits"
+
+[node name="Button4" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-alignment = 1
 
-[node name="TitleCard" type="TextureRect" parent="HBoxContainer/VBoxContainer2"]
+[node name="TitleCard" type="TextureRect" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 texture = ExtResource("6_6fxio")
 expand_mode = 5
+stretch_mode = 4
 
-[node name="SCPLOGO" type="TextureRect" parent="HBoxContainer/VBoxContainer2"]
+[node name="SCPLOGO" type="TextureRect" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-texture = ExtResource("7_lsiqg")
 expand_mode = 5
+stretch_mode = 4
 
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/MenuButtons/Play" to="HBoxContainer/VBoxContainer/MenuButtons" method="_on_play_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/MenuButtons/Options" to="HBoxContainer/VBoxContainer/MenuButtons" method="_on_options_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/MenuButtons/Credits" to="HBoxContainer/VBoxContainer/MenuButtons" method="_on_credits_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/MenuButtons/Quit" to="HBoxContainer/VBoxContainer/MenuButtons" method="_on_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/MenuButtons/Play" to="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/MenuButtons" method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/MenuButtons/Options" to="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/MenuButtons" method="_on_options_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/MenuButtons/Credits" to="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/MenuButtons" method="_on_credits_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/MenuButtons/Quit" to="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/MenuButtons" method="_on_quit_pressed"]
