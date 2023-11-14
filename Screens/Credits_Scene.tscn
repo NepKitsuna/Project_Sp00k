@@ -21,12 +21,40 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 500
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 500
+theme_override_constants/margin_bottom = 20
 
 [node name="Label" type="Label" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 80
 text = "Credits"
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 100
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+text = "Intro:D-Class
+The room around you is a placid white illuminated poorly by a single fluorescent light strip toward the center. The ground is all glossy white tiles apart from where the electronic doors connect to the floor where it turns to a dark steel. You remark to yourself that it’s very quiet in here. You tap against the metal frame of your bed, the sound bouncing off the white painted metal walls until being muffled by the mattress you lay on. The only sounds you hear besides the ones you make are the buzzing of the electricity from your light socket and the electronic door across from you. You have more time to consider how you got here it seems. You could only evade the law for so long, especially considering what was supposed to be one incident turning into a much larger mess. You are alone as you always have been, but this time you have nowhere to run to. Running seems to be the thing that got you here of all places however. You felt nothing when you took his life, why do you care so much about the fleeting memories of that day? Why would someone like you have anything left to feel for those that were ultimately just a roadbump that sent you careening into this shithole. You were tried and given death row, and yet that’s not where you are now. You’re in the dark as to how you truly ended up here, however it doesn’t take long for any D-Class to figure out what this place is. You are still on death row, you just don’t know the time or place you’ll die. You don’t get a formal last meal or a choice on how you go out, god knows what they have planned for you. Others talk of horrible monsters they’ve seen, ones you could not possibly imagine. This pitiful white room is just your purgatory before the hell you’ve wrought. Your tapping speeds up with your heartbeat as you consider that these moments at any time could be your last. You are as good as dead and you’ll never know when the actual moment will show. There’s one issue with that, however…
+Your room is suddenly cast in darkness as the white bulb above you goes out, as does the hand scanner on the door. You’ve never seen the lights turn off in this place, and the fact that you hear nothing does not make this any better. The small bit of comfort from the buzzing is replaced by the dread of absolute silence in such a claustrophobic room. You get up and head for where you remember the door being. You stumble in the darkness finding it hard to orient yourself, holding your arms out in front of you to feel for the door. You find the wall and trace it toward the middle of the room until you feel the cold metal plating of the scanner. You try to use the redundant scanner now in the darkness in some desperation to get out, and before you know it the door opens up for you with the shearing of metal and the echo going out into the hall before you. It’s still dead silent as you slink your way out into the open. You seem to be on your own.
+
+Intro:Guard
+
+	The white and gray corridors leading into the belly of the facility greet you for the last time as you make your way through the chorus of your own footsteps toward the offices. Your heart is in your chest at knowing what you have to do now, your freedom is so close and yet… unascertainable. Your position has always been one of difficulty. As a guard for The Foundation you’ve always been left in the dark as to what you’re guarding. You’ve been made aware through countless minor breaches that these things in the various cells are not to be trusted. Your family doesn’t know that. Your wife, your son, neither know what you do. You work for the government, you assure them. They believe your lies of military work. If they knew what dangers this facility was capable of they’d worry for your life every day you’re here. You’re also sure The Foundation would have some objections to the information you spread. People around here have been killed for less. This isn’t a place for helping those in need. This place is designed to keep things contained, no more noble than a prison. It even has prisoners, those on death row who will soon meet their end in god knows what ways. You’ve seen some weird casualties, heard some gruesome stories, and know some forbidden information, probably some that if revealed was in your possession would spell the end for you. Your job more than anything however, is to kill what needs to be killed. Who deems that? The Foundation is the one who decides what lives and what dies. It’s their job to secure the anomalous, contain the abominations, and protect what they’ve facilitated. It’s for that reason you decided to resign. You’ve often been told the process to resign is unconventional, and best case scenario, you must be anesthetized to the point where you forget everything you’ve ever seen in the facility.  You haven’t seen anyone in a little while you ponder as you wait in the head security office. There’s usually not a lot of commotion in here, but the suspicious lack of bodies doesn’t bode well. It’s way too silent. You fling the report to the desk and go about collecting your stuff. However as you make your way to the door something or someone closes the door in front of you.
+“What the!”
+You knock on the door and holler to whoever is on the other side.
+
+"
 
 [node name="back_Button" type="Button" parent="MarginContainer"]
 custom_minimum_size = Vector2(50, 50)
