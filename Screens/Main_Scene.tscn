@@ -50,11 +50,14 @@ offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+[node name="Perlin Noise" type="PanelContainer" parent="MarginContainer"]
 texture_repeat = 2
 material = SubResource("ShaderMaterial_mlkan")
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_iotl2")
+
+[node name="Perlin Color" type="Panel" parent="MarginContainer/Perlin Noise"]
+layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer"]
 layout_mode = 2
