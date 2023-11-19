@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bcjfhs7youoha"]
+[gd_scene load_steps=12 format=3 uid="uid://bcjfhs7youoha"]
 
 [ext_resource type="Script" path="res://Screens/Main_Scene_Global.gd" id="1_tjcy7"]
 [ext_resource type="Shader" path="res://Screens/main_Noise.gdshader" id="2_08s01"]
+[ext_resource type="Script" path="res://Screens/MarginContainer.gd" id="3_v5sqh"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_5gcur"]
 noise_type = 3
@@ -65,7 +66,11 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 80
 text = "Game"
 
-[node name="topLeft_Button" type="Button" parent="MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+script = ExtResource("3_v5sqh")
+
+[node name="topLeft_Button" type="Button" parent="MarginContainer/MarginContainer"]
 custom_minimum_size = Vector2(300, 150)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -74,7 +79,7 @@ theme = SubResource("Theme_5cml8")
 theme_override_font_sizes/font_size = 32
 text = "Click"
 
-[node name="topRight_Button" type="Button" parent="MarginContainer"]
+[node name="topRight_Button" type="Button" parent="MarginContainer/MarginContainer"]
 custom_minimum_size = Vector2(300, 150)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -83,7 +88,7 @@ theme = SubResource("Theme_5cml8")
 theme_override_font_sizes/font_size = 32
 text = "Click"
 
-[node name="bottomRight_Button" type="Button" parent="MarginContainer"]
+[node name="bottomRight_Button" type="Button" parent="MarginContainer/MarginContainer"]
 custom_minimum_size = Vector2(300, 150)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -92,7 +97,7 @@ theme = SubResource("Theme_5cml8")
 theme_override_font_sizes/font_size = 32
 text = "Click"
 
-[node name="bottomLeft_Button" type="Button" parent="MarginContainer"]
+[node name="bottomLeft_Button" type="Button" parent="MarginContainer/MarginContainer"]
 custom_minimum_size = Vector2(300, 150)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -100,3 +105,8 @@ size_flags_vertical = 8
 theme = SubResource("Theme_5cml8")
 theme_override_font_sizes/font_size = 32
 text = "Click"
+
+[connection signal="pressed" from="MarginContainer/MarginContainer/topLeft_Button" to="." method="_on_top_left_button_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/topRight_Button" to="." method="_on_top_right_button_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/bottomRight_Button" to="." method="_on_bottom_right_button_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/bottomLeft_Button" to="." method="_on_bottom_left_button_pressed"]
