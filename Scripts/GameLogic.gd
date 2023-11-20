@@ -15,21 +15,21 @@ func _ready():
 class Room extends Node2D:
 	
 	var roomID = 0
-	var SCPID
+	var scpID
 	var roomDialogue = "default"
 	
 	func getRoomID():
 		return roomID
 	func getSCPID():
-		return SCPID
+		return scpID
 	func getRoomDialogue():
 		return roomDialogue
 	
 	
 #Function that creates a room, fills it with data and appends it to the array
-func CreateRoom(SCPID, roomDialogue):
+func CreateRoom(scpID, roomDialogue):
 	var newRoom = Room.new()
-	newRoom.SCPID = SCPID
+	newRoom.scpID = scpID
 	newRoom.roomDialogue = roomDialogue
 	
 	#check the array for the amount of rooms
