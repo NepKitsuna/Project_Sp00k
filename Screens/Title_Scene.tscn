@@ -1,7 +1,26 @@
 [gd_scene load_steps=3 format=3 uid="uid://l20yrk3bihxr"]
 
-[ext_resource type="Script" path="res://Scripts/MenuButtons.gd" id="1_qf3h1"]
 [ext_resource type="Texture2D" uid="uid://c6gd4oa7p7km6" path="res://Art/Top Title.png" id="2_tqfjd"]
+
+[sub_resource type="GDScript" id="GDScript_ypjow"]
+script/source = "extends VBoxContainer
+
+
+func _on_play_button_pressed():
+	get_tree().change_scene_to_file(\"res://Screens/Main_Scene.tscn\")
+
+
+func _on_options_button_pressed():
+	get_tree().change_scene_to_file(\"res://Screens/Options_Scene.tscn\")
+
+
+func _on_credits_button_pressed():
+	get_tree().change_scene_to_file(\"res://Screens/Credits_Scene.tscn\")
+
+
+func _on_quit_button_pressed():
+	get_tree().quit()
+"
 
 [node name="Node2D" type="Node2D"]
 
@@ -26,7 +45,7 @@ alignment = 2
 [node name="MenuButtons" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 alignment = 2
-script = ExtResource("1_qf3h1")
+script = SubResource("GDScript_ypjow")
 
 [node name="play_Button" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/MenuButtons"]
 layout_mode = 2
