@@ -7,6 +7,8 @@ class SCP:
 	var scpClass = "#NULL"
 	var scpEntry = "Internal system error: Field undefined. Please contact system administrator. Internal system error: Field undefined. Please contact system administrator. InteRиαl Sуѕtєм ERяяσя: FïëlÐ ünÐëƒïnëÐ. ρĿєДšє ςόЛţДςţ šΫšţєΜMMMMMMMMMMMM^@#$@!^&&%**$*%^*%^%^"
 	var weight = 0
+	
+	
 
 
 #array holding General Room Dialogue (If no SCP is present)
