@@ -18,5 +18,5 @@ func _process(_delta):
 	pass
 	
 func setRoomText(newText):
-	self.text = newText
+	self.text = str(newText)
 	pass
