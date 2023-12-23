@@ -10,7 +10,7 @@ func _ready():
 	
 	#Example
 	#scpControl.createSCP(000, "Class", "Entry", 0 )
-	createSCP(7754, "Keter", "A thing that kills you", 10 )
+	createSCP(7754, "Keter", "A thing that kills you", 1 )
 	
 	roomText = $"MarginContainer/Textbox/Text Overlay/Dialogue"
 	
