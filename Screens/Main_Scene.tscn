@@ -61,6 +61,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_iotl2")
 layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 80

@@ -110,26 +110,6 @@ func createSCP(scpID, scpClass, scpEntry, weight):
 func CreateRoom():
 	var newRoom = Room.new()
 	
-	#newRoom.roomType = roomType
-	
-	#weight to decide
-#	var roomType = 4
-#	#0 - Safe 
-#	#1 - Keter
-#	#2 - Euclid
-#
-#	match roomType:
-#		"Safe":
-#			#choose from safe SCP List
-#			pass
-#		"Keter":
-#			#choose from safe SCP List
-#			pass
-#		"Euclid":
-#			#choose from safe SCP List
-#			pass
- #
-	
 	var emptyWeight = max(1, roomsVisited/max(1, emptySeen)) * 4
 	#Weight of highest SCP weight
 	var hNum = 0
