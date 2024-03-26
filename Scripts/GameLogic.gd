@@ -95,11 +95,6 @@ func createSCP(scpID, scpClass, scpEntry, weight):
 	newSCP.scpClass = scpClass
 	newSCP.scpEntry = scpEntry
 	newSCP.weight = weight
-	
-#	if newSCP.scpClass != "Safe" || "safe":
-#		dangerSCPs.append(newSCP)
-#	else:
-#		safeSCPs.append(newSCP)
 
 	scpPocket.append(newSCP)
 	
