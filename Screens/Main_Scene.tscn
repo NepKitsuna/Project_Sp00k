@@ -42,7 +42,9 @@ Button/styles/pressed = SubResource("StyleBoxFlat_vcb0q")
 [node name="Game" type="Node2D"]
 script = ExtResource("1_jhu3k")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -51,33 +53,33 @@ offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Perlin Noise" type="PanelContainer" parent="MarginContainer"]
+[node name="Perlin Noise" type="PanelContainer" parent="CanvasLayer/MarginContainer"]
 texture_repeat = 2
 material = SubResource("ShaderMaterial_mlkan")
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_iotl2")
 
-[node name="Perlin Color" type="Panel" parent="MarginContainer/Perlin Noise"]
+[node name="Perlin Color" type="Panel" parent="CanvasLayer/MarginContainer/Perlin Noise"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 80
 text = "Game"
 
-[node name="Textbox" type="MarginContainer" parent="MarginContainer"]
+[node name="Textbox" type="MarginContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 300
 theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 300
 theme_override_constants/margin_bottom = 100
 
-[node name="Text Overlay" type="Panel" parent="MarginContainer/Textbox"]
+[node name="Text Overlay" type="Panel" parent="CanvasLayer/MarginContainer/Textbox"]
 layout_mode = 2
 
-[node name="Dialogue" type="RichTextLabel" parent="MarginContainer/Textbox/Text Overlay"]
+[node name="Dialogue" type="RichTextLabel" parent="CanvasLayer/MarginContainer/Textbox/Text Overlay"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -89,10 +91,10 @@ visible_characters = 0
 visible_ratio = 0.0
 script = ExtResource("3_6xu8i")
 
-[node name="Buttons" type="MarginContainer" parent="MarginContainer"]
+[node name="Buttons" type="MarginContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
 
-[node name="topLeft_Button" type="Button" parent="MarginContainer/Buttons"]
+[node name="topLeft_Button" type="Button" parent="CanvasLayer/MarginContainer/Buttons"]
 custom_minimum_size = Vector2(300, 150)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -101,7 +103,7 @@ theme = SubResource("Theme_5cml8")
 theme_override_font_sizes/font_size = 32
 text = "Click"
 
-[node name="topRight_Button" type="Button" parent="MarginContainer/Buttons"]
+[node name="topRight_Button" type="Button" parent="CanvasLayer/MarginContainer/Buttons"]
 custom_minimum_size = Vector2(300, 150)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -110,7 +112,7 @@ theme = SubResource("Theme_5cml8")
 theme_override_font_sizes/font_size = 32
 text = "Click"
 
-[node name="bottomRight_Button" type="Button" parent="MarginContainer/Buttons"]
+[node name="bottomRight_Button" type="Button" parent="CanvasLayer/MarginContainer/Buttons"]
 custom_minimum_size = Vector2(300, 150)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -119,7 +121,7 @@ theme = SubResource("Theme_5cml8")
 theme_override_font_sizes/font_size = 32
 text = "Click"
 
-[node name="bottomLeft_Button" type="Button" parent="MarginContainer/Buttons"]
+[node name="bottomLeft_Button" type="Button" parent="CanvasLayer/MarginContainer/Buttons"]
 custom_minimum_size = Vector2(300, 150)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -128,7 +130,7 @@ theme = SubResource("Theme_5cml8")
 theme_override_font_sizes/font_size = 32
 text = "Click"
 
-[connection signal="pressed" from="MarginContainer/Buttons/topLeft_Button" to="." method="_on_top_left_button_pressed"]
-[connection signal="pressed" from="MarginContainer/Buttons/topRight_Button" to="." method="_on_top_right_button_pressed"]
-[connection signal="pressed" from="MarginContainer/Buttons/bottomRight_Button" to="." method="_on_bottom_right_button_pressed"]
-[connection signal="pressed" from="MarginContainer/Buttons/bottomLeft_Button" to="." method="_on_bottom_left_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Buttons/topLeft_Button" to="." method="_on_top_left_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Buttons/topRight_Button" to="." method="_on_top_right_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Buttons/bottomRight_Button" to="." method="_on_bottom_right_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Buttons/bottomLeft_Button" to="." method="_on_bottom_left_button_pressed"]

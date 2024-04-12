@@ -10,21 +10,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="MarginContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 80
 text = "Options"
 
-[node name="back_Button" type="Button" parent="MarginContainer"]
+[node name="back_Button" type="Button" parent="CanvasLayer/MarginContainer"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -33,4 +34,4 @@ theme_override_font_sizes/font_size = 32
 text = "Back"
 script = ExtResource("1_4u4py")
 
-[connection signal="pressed" from="MarginContainer/back_Button" to="MarginContainer/back_Button" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/back_Button" to="CanvasLayer/MarginContainer/back_Button" method="_on_pressed"]

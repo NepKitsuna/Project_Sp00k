@@ -12,8 +12,9 @@ offset_bottom = -1080.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -26,23 +27,23 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 500
 theme_override_constants/margin_bottom = 20
 
-[node name="Label" type="Label" parent="MarginContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 80
 text = "Credits"
 
-[node name="Panel" type="Panel" parent="MarginContainer"]
+[node name="Panel" type="Panel" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 100
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/MarginContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/MarginContainer/MarginContainer"]
 layout_mode = 2
 text = "Intro:D-Class
 The room around you is a placid white illuminated poorly by a single fluorescent light strip toward the center. The ground is all glossy white tiles apart from where the electronic doors connect to the floor where it turns to a dark steel. You remark to yourself that it’s very quiet in here. You tap against the metal frame of your bed, the sound bouncing off the white painted metal walls until being muffled by the mattress you lay on. The only sounds you hear besides the ones you make are the buzzing of the electricity from your light socket and the electronic door across from you. You have more time to consider how you got here it seems. You could only evade the law for so long, especially considering what was supposed to be one incident turning into a much larger mess. You are alone as you always have been, but this time you have nowhere to run to. Running seems to be the thing that got you here of all places however. You felt nothing when you took his life, why do you care so much about the fleeting memories of that day? Why would someone like you have anything left to feel for those that were ultimately just a roadbump that sent you careening into this shithole. You were tried and given death row, and yet that’s not where you are now. You’re in the dark as to how you truly ended up here, however it doesn’t take long for any D-Class to figure out what this place is. You are still on death row, you just don’t know the time or place you’ll die. You don’t get a formal last meal or a choice on how you go out, god knows what they have planned for you. Others talk of horrible monsters they’ve seen, ones you could not possibly imagine. This pitiful white room is just your purgatory before the hell you’ve wrought. Your tapping speeds up with your heartbeat as you consider that these moments at any time could be your last. You are as good as dead and you’ll never know when the actual moment will show. There’s one issue with that, however…
@@ -56,7 +57,7 @@ You knock on the door and holler to whoever is on the other side.
 
 "
 
-[node name="back_Button" type="Button" parent="MarginContainer"]
+[node name="back_Button" type="Button" parent="CanvasLayer/MarginContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -65,4 +66,4 @@ theme_override_font_sizes/font_size = 32
 text = "Back"
 script = ExtResource("1_x01yq")
 
-[connection signal="pressed" from="MarginContainer/back_Button" to="MarginContainer/back_Button" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/back_Button" to="CanvasLayer/MarginContainer/back_Button" method="_on_pressed"]

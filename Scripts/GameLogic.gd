@@ -12,7 +12,7 @@ func _ready():
 	#scpControl.createSCP(000, "Class", "Entry", 0 )
 	createSCP(7754, "Keter", "A thing that kills you", 1 )
 	
-	roomText = $"MarginContainer/Textbox/Text Overlay/Dialogue"
+	roomText = $"CanvasLayer/MarginContainer/Textbox/Text Overlay/Dialogue"
 	
 	CreateRoom()
 	roomText.setRoomText(roomCurrent.roomDialogue)
