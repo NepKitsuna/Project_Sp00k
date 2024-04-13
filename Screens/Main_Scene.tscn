@@ -45,13 +45,8 @@ script = ExtResource("1_jhu3k")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
 offset_right = 1920.0
 offset_bottom = 1080.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="Perlin Noise" type="PanelContainer" parent="CanvasLayer/MarginContainer"]
 texture_repeat = 2
