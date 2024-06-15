@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://l20yrk3bihxr"]
+[gd_scene load_steps=4 format=3 uid="uid://l20yrk3bihxr"]
 
+[ext_resource type="VideoStream" path="res://Art/LogoSCP.ogv" id="2_l8v10"]
 [ext_resource type="Texture2D" uid="uid://c6gd4oa7p7km6" path="res://Art/Top Title.png" id="2_tqfjd"]
 
 [sub_resource type="GDScript" id="GDScript_ypjow"]
@@ -27,42 +28,55 @@ func _on_quit_button_pressed():
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -402.0
+offset_top = -224.0
+offset_right = 402.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
+alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(800, 400)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.25
 alignment = 2
 
 [node name="MenuButtons" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
+z_index = 1
+custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
+size_flags_vertical = 3
 alignment = 2
 script = SubResource("GDScript_ypjow")
 
 [node name="play_Button" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/MenuButtons"]
+z_index = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Play"
 
 [node name="options_Button" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/MenuButtons"]
+z_index = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Options"
 
 [node name="credits_Button" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/MenuButtons"]
+z_index = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Credits"
 
 [node name="quit_Button" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/MenuButtons"]
+z_index = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Quit"
@@ -81,6 +95,16 @@ stretch_mode = 4
 layout_mode = 2
 expand_mode = 5
 stretch_mode = 4
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="CanvasLayer"]
+show_behind_parent = true
+offset_left = 1.0
+offset_right = 1921.0
+offset_bottom = 1088.0
+mouse_filter = 2
+stream = ExtResource("2_l8v10")
+autoplay = true
+loop = true
 
 [connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/MenuButtons/play_Button" to="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/MenuButtons" method="_on_play_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/MenuButtons/options_Button" to="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/MenuButtons" method="_on_options_button_pressed"]
