@@ -148,8 +148,10 @@ func CreateRoom():
 	var hNum = 0
 	var tempSCP
 	
+	
+	
 	for i in scpPocket.size():
-		if	scpPocket[i].weight > hNum:
+		if	scpPocket[i].weight > hNum && scpPocket[i].scpClass:
 			hNum = scpPocket[i].weight
 			tempSCP = scpPocket[i]
 		pass
@@ -218,6 +220,7 @@ func _on_bottom_left_button_pressed():
 	if $CanvasLayer/MarginContainer/Buttons/bottomLeft_Button.text == "Next":
 	
 		CreateRoom()
+		
 	
 	else:
 		pass # Replace with function body.
