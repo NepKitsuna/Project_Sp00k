@@ -35,6 +35,10 @@ func _ready():
 
 func _process(delta):
 	
+	#Debuging Quick Quit Key
+	if Input.is_key_pressed(KEY_B):
+		get_tree().quit()
+	
 	if !roomCurrent.rSCP:
 		#do nothing
 		pass
@@ -96,7 +100,7 @@ I have a feeling that you are right where you want to be."
 class SCP:
 	
 	var scpID = 000
-	var scpType = ""
+	#var scpType = "UNKNOWN" - Unsure what this was for. Seemingly Unused...
 	var scpClass = "#NULL"
 	var scpEntry = "Internal system error: Field undefined. Please contact system administrator. Internal system error: Field undefined. Please contact system administrator. InteRиαl Sуѕtєм ERяяσя: FïëlÐ ünÐëƒïnëÐ. ρĿєДšє ςόЛţДςţ šΫšţєΜMMMMMMMMMMMM^@#$@!^&&%**$*%^*%^%^"
 	var weight = 0
@@ -106,8 +110,8 @@ class SCP:
 	func sawSCP():
 		seenSCP += 1
 		pass
-	func getType():
-		return scpType
+	#func getType():
+		#return scpType
 
 	#func roomLogic():
 		
@@ -135,8 +139,11 @@ func createSCP(scpID, scpClass, scpEntry, weight):
 func CreateRoom():
 	var newRoom = Room.new()
 	
-	var emptyWeight = max(1, roomsVisited/max(1, emptySeen)) * 4
-	var safeWeight = max(1, roomsVisited/max(1, emptySeen))
+	var emptyWeight = 0
+	var safeWeight = 0
+	
+	#var emptyWeight = max(1, roomsVisited/max(1, emptySeen)) * 4
+	#var safeWeight = max(1, roomsVisited/max(1, emptySeen))
 	#Weight of highest SCP weight
 	var hNum = 0
 	var tempSCP
@@ -157,6 +164,9 @@ func CreateRoom():
 		newRoom.B2Text = "..."
 		newRoom.B3Text = "..."
 		newRoom.B4Text = "..."
+		emptySeen += 1
+		
+	roomsVisited += 1
 	roomCurrent = newRoom
 	
 	pass
