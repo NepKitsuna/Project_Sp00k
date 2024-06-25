@@ -1,5 +1,7 @@
 extends Node
 
+
+
 var roomText
 var B1HText 
 var B2HText 
@@ -8,15 +10,18 @@ var B4HText
 
 var roomCurrent
 var emptySeen = 0
-var roomsVisited = 0
+var totalVisited = 0
+var emptyWeight = 4
+var safeVisited = 0
+var scpChance = 0
 
 func _ready():
 	
 	#Example
 	#scpControl.createSCP(000, "Class", "Entry", 0 )
 	createSCP(7754, "Keter", "A thing that kills you", 1 )
-	createSCP(529, "safe", "Josie, the Half Cat", 1)
-	createSCP(055, "safe", "Antimeme", 1)
+	createSCP(529, "Safe", "Josie, the Half Cat", 1)
+	createSCP(055, "Safe", "Antimeme", 1)
 	
 	roomText = $"CanvasLayer/MarginContainer/Textbox/Text Overlay/Dialogue"
 	B1HText = $CanvasLayer/MarginContainer/Buttons/bottomLeft_Button
@@ -139,26 +144,33 @@ func createSCP(scpID, scpClass, scpEntry, weight):
 func CreateRoom():
 	var newRoom = Room.new()
 	
-	var emptyWeight = 0
-	var safeWeight = 0
 	
-	#var emptyWeight = max(1, roomsVisited/max(1, emptySeen)) * 4
+	#var safeWeight = 0
+	
+	emptyWeight = max(1, totalVisited/max(1, emptySeen)) * 4
 	#var safeWeight = max(1, roomsVisited/max(1, emptySeen))
 	#Weight of highest SCP weight
-	var hNum = 0
+	
 	var tempSCP
 	
-	
-	
 	for i in scpPocket.size():
-		if	scpPocket[i].weight > hNum && scpPocket[i].scpClass:
-			hNum = scpPocket[i].weight
+		if	scpPocket[i].weight > scpChance && scpPocket[i].scpClass == "Safe":
+			scpChance = scpPocket[i].weight * max(1, emptySeen/max(1, totalVisited))
 			tempSCP = scpPocket[i]
-		pass
+			safeVisited += 1
+		#if the weights of the scps are the same, Flip a coin on who takes the spot.
+		if tempSCP && scpPocket[i].weight == tempSCP.weight:
+			if randi() %2 == 0:
+				tempSCP = scpPocket[i]
+		#pass
 		
-	if	emptyWeight < hNum:
+		
+		
+	if	tempSCP && emptyWeight < scpChance:
 		newRoom.rSCP = tempSCP
-		pass
+		tempSCP.sawSCP()
+		tempSCP.weight -= tempSCP.seenSCP
+		#pass
 
 	else:
 		newRoom.roomDialogue = roomDia[randi_range(0, roomDia.size() - 1)]
@@ -168,10 +180,13 @@ func CreateRoom():
 		newRoom.B4Text = "..."
 		emptySeen += 1
 		
-	roomsVisited += 1
+		for i in scpPocket.size():
+			scpPocket[i].weight += 1
+		
+	totalVisited += 1
 	roomCurrent = newRoom
 	
-	pass
+	#pass
 
 
 func _roomLogic(_scp):
@@ -190,7 +205,9 @@ func _roomLogic(_scp):
 			roomCurrent.B3Text = "..."
 			roomCurrent.B4Text = "..."
 		529:
-			roomCurrent.roomDialogue = "Oh shit a cat"
+			var catSpeak = ["Oh shit a cat", "yoooo, Same cat!!", "There be the cat again!!", "I'm getting tired of the cat", "Oh shit, no cat here :("]
+			#crappy downsizing to keep it from breaking scope.
+			roomCurrent.roomDialogue = catSpeak[min(4,max(0,_scp.seenSCP-1))]
 			roomCurrent.B1Text = "Next"
 			roomCurrent.B2Text = "meow"
 			roomCurrent.B3Text = "..."
@@ -201,6 +218,7 @@ func _roomLogic(_scp):
 			roomCurrent.B2Text = "..."
 			roomCurrent.B3Text = "..."
 			roomCurrent.B4Text = "..."
+	
 	
 	pass
 
