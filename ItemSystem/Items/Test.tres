@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://ckqs0c30qllmv"]
+
+[ext_resource type="Script" path="res://ItemSystem/item_data.gd" id="1_aunbj"]
+[ext_resource type="Texture2D" uid="uid://ubdvi7ush754" path="res://Art/Spr_4h_172N.png" id="2_4y02w"]
+
+[resource]
+script = ExtResource("1_aunbj")
+name = "Pichu"
+description = "The tiny mouse pokemon"
+stackable = true
+texture = ExtResource("2_4y02w")

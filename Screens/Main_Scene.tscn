@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://bcjfhs7youoha"]
+[gd_scene load_steps=13 format=3 uid="uid://bcjfhs7youoha"]
 
 [ext_resource type="Script" path="res://Scripts/GameLogic.gd" id="1_jhu3k"]
 [ext_resource type="Shader" path="res://Screens/main_Noise.gdshader" id="2_08s01"]
+[ext_resource type="PackedScene" uid="uid://cbgiqh7d75f18" path="res://ItemSystem/inventory.tscn" id="2_vepoi"]
 [ext_resource type="Script" path="res://Scripts/DialogueScript.gd" id="3_6xu8i"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_5gcur"]
@@ -124,6 +125,16 @@ size_flags_vertical = 8
 theme = SubResource("Theme_5cml8")
 theme_override_font_sizes/font_size = 32
 text = "Click"
+
+[node name="InventoryUI" type="Control" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="PlayerInventory" parent="CanvasLayer/MarginContainer/InventoryUI" instance=ExtResource("2_vepoi")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 230.0
+offset_right = 50.0
+offset_bottom = 270.0
 
 [connection signal="pressed" from="CanvasLayer/MarginContainer/Buttons/topLeft_Button" to="." method="_on_top_left_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/Buttons/topRight_Button" to="." method="_on_top_right_button_pressed"]
