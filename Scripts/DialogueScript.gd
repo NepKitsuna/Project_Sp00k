@@ -1,8 +1,8 @@
 extends RichTextLabel
 
-var drawTextStart = 0
+var drawTextStart = 1
 var drawSpeed = 2
-var charLimit = 1000
+var charLimit = 2000
 
 func _ready():
 	pass

@@ -85,6 +85,7 @@ grow_vertical = 2
 text = "You done did a fuck"
 visible_characters = 0
 visible_ratio = 0.0
+text_direction = 1
 script = ExtResource("3_6xu8i")
 
 [node name="Buttons" type="MarginContainer" parent="CanvasLayer/MarginContainer"]
